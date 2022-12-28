@@ -41,7 +41,7 @@ const questionAnswers = [
 var penaltySeconds = 3
 var currentQuestionIndex = 0
 var timeLeft = 60; // 60 seconds
-var userScores = []
+var userScores = JSON.parse(localStorage.getItem('high-scores')) || []
 
 // When the start button is clicked, display question 1 and answers
 // add an event listener to the start button that listens for a click
@@ -137,7 +137,10 @@ function displayHighScoreScreen() {
   startScreen.style.display = 'none'
   initialsScreen.style.display = 'none'
 
-  userScores.forEach(user => {
+  // Load all the scores from local storage and display them
+  var storedHighScores = JSON.parse(localStorage.getItem('high-scores')) || []
+
+  storedHighScores.forEach(user => {
     // create li element
     const li = document.createElement('li')
     li.textContent = `${user.initials}: ${user.score}`
@@ -167,5 +170,8 @@ function saveHighScore(event) {
     initials: initials
   }
   userScores.push(userScore)
-  userScores.sort((a, b) => a.score - b.score)
+  userScores.sort((a, b) => b.score - a.score)
+  // Save the score to local storage
+  localStorage.setItem('high-scores', JSON.stringify(userScores))
+  displayHighScoreScreen()
 }
