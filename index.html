@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>coding quiz</title>
+</head>
+
+<body>
+    <header>
+        <button id="view-high-score">View High Score</button>
+        <div>Timer: <span id="count-down">60</span></div>
+    </header>
+    <main>
+      <section id="start-screen">
+        <button id="start-button">Start</button>
+      </section>
+
+      <section id="question-screen">
+        <h2 id="question"></h2>
+        <ol id="answers">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ol>
+      </section>
+
+      <section id="initials-screen">
+        <h2>Enter your intials</h2>
+        <form id="initials-form">
+          <input id="initials" type="text" placeholder="AJA" />
+          <button>Submit</button>
+        </form>
+      </section>
+      
+      <section id="high-score-screen">
+        High Scores:
+        <ul id="high-scores"></ul>
+      </section>
+
+    </main>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
